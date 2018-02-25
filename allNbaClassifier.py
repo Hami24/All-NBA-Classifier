@@ -1,4 +1,5 @@
 import pandas as pd
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
@@ -34,3 +35,5 @@ currentSeasonTest = scaler.fit_transform(currentSeasonTest)
 #Prediction based on 2018 player stats
 currentSeasonPrediction = nbaClassifier.predict(currentSeasonTest)
 
+#Saving model for later use
+pickle.dump(nbaClassifier,open('nbaClassifierModel','wb'))
